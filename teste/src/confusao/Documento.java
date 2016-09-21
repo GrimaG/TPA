@@ -31,7 +31,7 @@ public class Documento {
     }
 
     private void carregaDoc() throws FileNotFoundException {
-        Scanner scanner = new Scanner(new FileReader(this.origem)).useDelimiter(" ");
+        Scanner scanner = new Scanner(new FileReader(this.origem)).useDelimiter("\\s|\\n");
         while (scanner.hasNext()) {
             String palavra = scanner.next();
             setVocabulario(palavra);
@@ -40,7 +40,7 @@ public class Documento {
     }
 
     private void setVocabulario(String palavra) {
-        this.palavraTemp = palavra.replace("\n", "");
+        this.palavraTemp = palavra;
         if (isAlpha(palavraTemp)) {
             boolean achou = false;
             String lowercase = palavraTemp.toLowerCase();
